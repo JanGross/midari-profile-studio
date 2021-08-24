@@ -166,7 +166,6 @@ export default {
     top:  2.3%;
     width: 14.5%;
     border-radius: 100%;
-    opacity: 100%;
   }
 }
 
@@ -219,7 +218,7 @@ export default {
 
 
 h3 {
-  margin: 40px 0 0;
+  margin: 25px 0 0;
   text-align: center;
 }
 ul {
