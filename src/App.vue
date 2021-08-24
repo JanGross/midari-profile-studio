@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Designer msg="Midari profile designer"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Designer from './components/Designer.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Designer
   }
 }
 </script>
