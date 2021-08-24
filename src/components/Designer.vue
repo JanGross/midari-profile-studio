@@ -122,13 +122,20 @@ export default {
     margin-bottom: 0;
   }
 
-  width: 50%;
+  width: 80%;
+  max-width: 800px;
   margin: 0 auto;
   padding: 25px;
+
+  @media (max-width: 680px) {
+    width: 100%;
+    padding: 25px 0;
+  }
+
 }
 
 .profile-container {
-  width: 900px;
+  width: 915px;
   max-width: 100%;
   margin: 0 auto;
   resize: horizontal;
@@ -141,6 +148,7 @@ export default {
   .profile {
     position: relative;
     width: 100%;
+    border-radius: 10px;
     padding-bottom: 62.5%;
     background-color: red;
   }
@@ -182,6 +190,7 @@ export default {
 
 .flex-item {
   max-width: 100%;
+  margin: 0 15px;
 }
 
 #preview {
@@ -190,6 +199,7 @@ export default {
 }
 #commands {
   min-width: 300px;
+  flex-grow: 1;
   align-self: flex-start;
 
   .command {
