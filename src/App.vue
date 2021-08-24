@@ -2,7 +2,9 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
+      fixed
+      elevation="5"
+      color="secondary"
       dark
     >
       <div class="d-flex align-center">
@@ -10,12 +12,12 @@
           alt="Vuetify Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="./assets/midari_studio_logo.png"
           transition="scale-transition"
-          width="40"
+          width="90"
         />
 
-        <span class="mr-2">Midari Profile Designer</span>
+        <span class="mr-2">Midari Profile Studio</span>
       </div>
 
       <v-spacer></v-spacer>
@@ -33,6 +35,13 @@
     <v-main>
       <Designer/>
     </v-main>
+    <v-footer class="footer" 
+      color="secondary"
+      
+      elevation="5"
+    >
+      MPS v0.0.1 by Minzkraut - Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a>
+    </v-footer>
   </v-app>
 </template>
 
@@ -51,10 +60,19 @@ export default {
 };
 </script>
 <style>
+
+a {
+  margin-left: 5px;
+}
 .v-color-picker__alpha {
   display: none;
 }
 .v-color-picker__hue {
   margin-bottom: 0 !important;
+}
+
+.footer {
+  justify-content: center;
+  font-size: 12px;
 }
 </style>

@@ -1,10 +1,13 @@
 <template>
   <div class="designer">
-    <h1>{{ msg }}</h1>
-    <p>
-      HELO
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
+    <div id="intro">
+      <h2>Welcome to Midari Profile Studio</h2>
+      <p>
+        Customize your profile and run the commands in any channel that has access to the Midari Bot.<br>
+        Your settings are not saved locally. Refreshing the page will reset all colors!<br>
+        This tool is still work in progress!
+      </p>
+    </div>
     <div class="flex-container"> <!-- ToDo: fix container -->
       <div id="preview" class="flex-item">
         <h3>Preview</h3>
@@ -39,38 +42,35 @@
         <v-color-picker style="margin: 0 auto;"  
           v-model="backgroundColor"
           hide-inputs
-          canvas-height="300"
-          value="f2dadd"
+          canvas-height="200"
           dot-size="25"
           swatches-max-height="100"
           elevation="5"
-          show-swatches
           mode="hexa"
         ></v-color-picker>
-      </div>
-      <div class="flex-item">
+      
         <h3>Panels</h3>
         <v-color-picker style="margin: 0 auto;" 
           v-model="panelColor"
           hide-inputs
-          canvas-height="300"
-          value="f2dadd"
+          canvas-height="200"
           dot-size="25"
           swatches-max-height="100"
           elevation="5"
-          show-swatches
           mode="hexa"
         ></v-color-picker>
       </div>
       <div class="flex-item" id="commands">
         <h3>Commands</h3>
         <div class="command">
-          <span class="code">mep b {{backgroundColor.substring(1,7)}}</span>  
+          Background
+          <div class="code">mep b {{backgroundColor.substring(1,7)}}</div>  
           <input type="hidden" id="bg" :value="'mep b '+backgroundColor.substring(1,7)">
           <v-btn @click.stop.prevent="copyColor('bg')">Copy</v-btn>
         </div>
         <div class="command">
-          <span class="code">mep t {{panelColor.substring(1,7)}}</span>  
+          Panels
+          <div class="code">mep t {{panelColor.substring(1,7)}}</div>  
           <input type="hidden" id="panel" :value="'mep t ' + panelColor.substring(1,7)">
           <v-btn @click.stop.prevent="copyColor('panel')">Copy</v-btn>
         </div>
@@ -87,13 +87,13 @@ export default {
     msg: String
   },
   data: ()=>({
-    panelColor: '00ff00',
-    backgroundColor: '000fff'
+    panelColor: '3D985D',
+    backgroundColor: '303144'
   }),
   methods: {
         copyColor (qs) {
           let testingCodeToCopy = document.querySelector('#'+qs)
-          testingCodeToCopy.setAttribute('type', 'text')    // 不是 hidden 才能複製
+          testingCodeToCopy.setAttribute('type', 'text')
           testingCodeToCopy.select()
 
           try {
@@ -112,8 +112,23 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
+#intro {
+  h2 {
+    text-align: center;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  width: 50%;
+  margin: 0 auto;
+  padding: 25px;
+}
+
 .profile-container {
-  width: 800px;
+  width: 900px;
   max-width: 100%;
   margin: 0 auto;
   resize: horizontal;
@@ -122,37 +137,37 @@ export default {
   //height: calc(45vh - 16px);
   box-sizing: border-box;
   display: inline-block;
-}
 
-.profile {
-  position: relative;
-  width: 100%;
-  padding-bottom: 62.5%;
-  background-color: red;
-}
-.overlay-panels {
-  position:absolute;
-  width:  100%;
-  height: 100%;
-  left: 0;
-}
+  .profile {
+    position: relative;
+    width: 100%;
+    padding-bottom: 62.5%;
+    background-color: red;
+  }
+  .overlay-panels {
+    position:absolute;
+    width:  100%;
+    height: 100%;
+    left: 0;
+  }
 
-.overlay-icons {
-  position: absolute;
-  width:  100%;
-  height: 100%;
-  left: 0;
-  background-size:cover;
-  background-image: url('../assets/midari_overlay.png');
-}
+  .overlay-icons {
+    position: absolute;
+    width:  100%;
+    height: 100%;
+    left: 0;
+    background-size:cover;
+    background-image: url('../assets/midari_overlay.png');
+  }
 
-.user-image {
-  position: absolute;
-  left: 1.5%;
-  top:  2.2%;
-  width: 14.5%;
-  border-radius: 100%;
-  opacity: 100%;
+  .user-image {
+    position: absolute;
+    left: 1.6%;
+    top:  2.3%;
+    width: 14.5%;
+    border-radius: 100%;
+    opacity: 100%;
+  }
 }
 
 .flex-container {
@@ -163,7 +178,7 @@ export default {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .flex-item {
@@ -175,17 +190,34 @@ export default {
   //flex-basis: 50%;
 }
 #commands {
-  flex-basis: 30%;
+  min-width: 300px;
+  align-self: flex-start;
+
+  .command {
+    position: relative;
+    margin: 20px;
+  }
+
+  button {
+    position: absolute;
+    right: 0px;
+    bottom: 6px;
+    height: 45px;
+  }
 }
-.command {
-  margin: 20px;
+
+.code {
+  background-color: #0a0a0a;
+  border-radius: 5px;
+  padding: 11px;
+  width: 100%;
+  display: inline-block;
+  margin: 5px 0;
+  font-family: monospace;
 }
-button {
-  margin-left: 15px;
-}
-g {
-  fill: v-bind(panelColor);
-}
+
+
+
 h3 {
   margin: 40px 0 0;
   text-align: center;
@@ -200,5 +232,9 @@ li {
 }
 a {
   color: #42b983;
+}
+
+p {
+  padding: 25px;
 }
 </style>
