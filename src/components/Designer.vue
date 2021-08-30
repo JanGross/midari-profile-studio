@@ -110,72 +110,13 @@ export default {
 }
 </script>
 
+<style scoped lang="scss">
+    @import '../styles/preview.scss';
+    @import '../styles/specifics.scss';
+</style>
+
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
-#intro {
-  h2 {
-    text-align: center;
-  }
-
-  p {
-    margin-bottom: 0;
-  }
-
-  width: 80%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 25px;
-
-  @media (max-width: 680px) {
-    width: 100%;
-    padding: 25px 0;
-  }
-
-}
-
-.profile-container {
-  width: 915px;
-  max-width: 100%;
-  margin: 0 auto;
-  resize: horizontal;
-  align-content: center;
-  justify-content: center;
-  //height: calc(45vh - 16px);
-  box-sizing: border-box;
-  display: inline-block;
-
-  .profile {
-    position: relative;
-    width: 100%;
-    border-radius: 10px;
-    padding-bottom: 62.5%;
-    background-color: red;
-  }
-  .overlay-panels {
-    position:absolute;
-    width:  100%;
-    height: 100%;
-    left: 0;
-  }
-
-  .overlay-icons {
-    position: absolute;
-    width:  100%;
-    height: 100%;
-    left: 0;
-    background-size:cover;
-    background-image: url('../assets/midari_overlay.png');
-  }
-
-  .user-image {
-    position: absolute;
-    left: 1.6%;
-    top:  2.3%;
-    width: 14.5%;
-    border-radius: 100%;
-  }
-}
 
 .flex-container {
   max-width: 100%;
@@ -193,57 +134,23 @@ export default {
   margin: 0 15px;
 }
 
-#preview {
-  order: -1;
-  //flex-basis: 50%;
-}
-#commands {
-  min-width: 300px;
-  flex-grow: 1;
-  align-self: flex-start;
-
-  .command {
-    position: relative;
-    margin: 20px;
-  }
-
-  button {
-    position: absolute;
-    right: 0px;
-    bottom: 6px;
-    height: 45px;
-  }
-}
-
-.code {
-  background-color: #0a0a0a;
-  border-radius: 5px;
-  padding: 11px;
-  width: 100%;
-  display: inline-block;
-  margin: 5px 0;
-  font-family: monospace;
-}
-
-
-
 h3 {
   margin: 25px 0 0;
   text-align: center;
 }
+
 ul {
   list-style-type: none;
   padding: 0;
 }
+
 li {
   display: inline-block;
   margin: 0 10px;
 }
+
 a {
   color: #42b983;
 }
 
-p {
-  padding: 25px;
-}
 </style>

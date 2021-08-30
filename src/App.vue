@@ -40,7 +40,7 @@
       
       elevation="5"
     >
-      MPS v0.0.1 by Minzkraut - Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a>
+      MPS v0.0.2 by Minzkraut - Send feedback via <a href="https://mnz.gg/discord" title="Minzkrauts Discord">Discord </a> - Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a>
     </v-footer>
   </v-app>
 </template>
@@ -61,8 +61,9 @@ export default {
 </script>
 <style>
 
-a {
-  margin-left: 5px;
+a, footer.footer a {
+  margin: 0 5px;
+  color: #52BD6F;
 }
 .v-color-picker__alpha {
   display: none;

@@ -1,0 +1,48 @@
+#intro {
+    h2 {
+      text-align: center;
+    }
+  
+    p {
+      padding: 25px;
+      padding-bottom: 0;
+    }
+
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 25px;
+  
+    @media (max-width: 680px) {
+      width: 100%;
+      padding: 25px 0;
+    }  
+}
+
+#commands {
+    min-width: 300px;
+    flex-grow: 1;
+    align-self: flex-start;
+
+    .command {
+        position: relative;
+        margin: 20px;
+    }
+
+    button {
+        position: absolute;
+        right: 0px;
+        bottom: 6px;
+        height: 45px;
+    }
+
+    .code {
+        background-color: #0a0a0a;
+        border-radius: 5px;
+        padding: 11px;
+        width: 100%;
+        display: inline-block;
+        margin: 5px 0;
+        font-family: monospace;
+    }
+}
