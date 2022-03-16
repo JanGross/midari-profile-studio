@@ -64,14 +64,14 @@
         <h3>Commands</h3>
         <div class="command">
           Background
-          <div class="code">mep b {{backgroundColor.substring(1,7)}}</div>  
-          <input type="hidden" id="bg" :value="'mep b '+backgroundColor.substring(1,7)">
+          <div class="code">/editprofile background {{backgroundColor.substring(1,7)}}</div>  
+          <input type="hidden" id="bg" :value="'/editprofile background '+backgroundColor.substring(1,7)">
           <v-btn @click.stop.prevent="copyColor('bg')">Copy</v-btn>
         </div>
         <div class="command">
           Panels
-          <div class="code">mep t {{panelColor.substring(1,7)}}</div>  
-          <input type="hidden" id="panel" :value="'mep t ' + panelColor.substring(1,7)">
+          <div class="code">/editprofile theme {{panelColor.substring(1,7)}}</div>  
+          <input type="hidden" id="panel" :value="'/editprofile theme ' + panelColor.substring(1,7)">
           <v-btn @click.stop.prevent="copyColor('panel')">Copy</v-btn>
         </div>
       </div>
