@@ -40,7 +40,7 @@
       
       elevation="5"
     >
-      MPS v0.0.2 by Minzkraut - Send feedback via <a href="https://mnz.gg/discord" title="Minzkrauts Discord">Discord </a> - Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a>
+      MPS v0.0.3 by Minzkraut - Send feedback via <a href="https://mnz.gg/discord" title="Minzkrauts Discord">Discord </a> - Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a>
     </v-footer>
   </v-app>
 </template>
