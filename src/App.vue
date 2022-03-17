@@ -59,7 +59,8 @@ export default {
   }),
 };
 </script>
-<style>
+<style lang="scss">
+@import './styles/generic.scss';
 
 a, footer.footer a {
   margin: 0 5px;
