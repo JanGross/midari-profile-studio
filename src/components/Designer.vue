@@ -1,13 +1,6 @@
 <template>
   <div class="designer">
-    <div id="intro">
-      <h2>Welcome to Midari Profile Studio</h2>
-      <p>
-        Customize your profile and run the commands in any channel that has access to the Midari Bot.<br>
-        Your settings are not saved locally. Refreshing the page will reset all colors!<br>
-        This tool is still work in progress!
-      </p>
-    </div>
+    <Intro header="Welcome to Midari Profile Studio" :body="introBody" />
     <div class="flex-container"> <!-- ToDo: fix container -->
       <Preview :panelColor="panelColor" :backgroundColor="backgroundColor" />
       <div class="flex-item">
@@ -41,16 +34,20 @@
 <script>
 import Preview from './Preview.vue';
 import Commands from './Commands.vue';
+import Intro from './Intro.vue';
 
 export default {
   name: 'Designer',
-  components: { Preview, Commands },
+  components: { Preview, Commands, Intro },
   props: {
     msg: String
   },
   data: ()=>({
     panelColor: '3D985D',
-    backgroundColor: '303144'
+    backgroundColor: '303144',
+    introBody: `Customize your profile and run the commands in any channel that has access to the Midari Bot.<br>
+                Your settings are not saved locally. Refreshing the page will reset all colors!<br>
+                This tool is still work in progress!`
   })
 }
 </script>
