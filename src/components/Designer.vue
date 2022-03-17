@@ -34,6 +34,7 @@
         ></v-color-picker>
       </div>
       <Commands :panelColor="panelColor" :backgroundColor="backgroundColor" />
+      <BadgeSelector />
     </div>
   </div>
 </template>
@@ -41,10 +42,11 @@
 <script>
 import Preview from './Preview.vue';
 import Commands from './Commands.vue';
+import BadgeSelector from './BadgeSelector.vue';
 
 export default {
   name: 'Designer',
-  components: { Preview, Commands },
+  components: { Preview, Commands, BadgeSelector },
   props: {
     msg: String
   },
