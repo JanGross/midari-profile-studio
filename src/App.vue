@@ -33,9 +33,24 @@
     </v-app-bar>
 
     <v-main>
-      <Designer/>
+      <v-tabs centered>
+        <v-tabs-slider color="yellow"></v-tabs-slider>
+
+        <v-tab>
+            Profile Designer
+        </v-tab>
+        <v-tab>
+            Custom Card Designer
+        </v-tab>
+        <v-tab-item>
+          <Designer/>
+        </v-tab-item>
+        <v-tab-item>
+          <CardDesigner/>
+        </v-tab-item>
+      </v-tabs>
     </v-main>
-    <v-footer class="footer" 
+    <v-footer fixed class="footer" 
       color="secondary"
       
       elevation="5"
@@ -47,12 +62,13 @@
 
 <script>
 import Designer from './components/Designer';
+import CardDesigner from './components/CardDesigner';
 
 export default {
   name: 'App',
 
   components: {
-    Designer,
+    Designer, CardDesigner
   },
 
   data: () => ({
