@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Intro header="Card Designer" body="This Tool is currently being built...<br />Mobile cropper might behave weird. " />
+    <Intro header="Card Designer" body="This Tool is currently being built...<br/>Mobile cropper might behave weird. <br/>Known Issues: <br/>- (mobile) Moving cropper to the right changes tabs <br/>- (mobile)Pinch to zoom affects page instead of crop area <br>- Initial crop area doesn't cover the maximum size psossible" />
     <v-row justify="center" class="pa-10">
       <div class="button-wrapper">
         <input
