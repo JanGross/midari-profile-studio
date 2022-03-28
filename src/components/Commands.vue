@@ -13,6 +13,15 @@
           <input type="hidden" id="panel" :value="'/editprofile theme ' + panelColor.substring(1,7)">
           <v-btn @click.stop.prevent="copyColor('panel')">Copy</v-btn>
         </div>
+        <div class="ad-container flex-item" style="">
+        <Adsense
+          data-ad-client="ca-pub-4611357578399674"
+          data-ad-slot="9274429601"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        >
+        </Adsense>
+      </div>
     </div>
 </template>
 
