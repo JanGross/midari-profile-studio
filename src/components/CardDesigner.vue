@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Intro header="Card Designer" body="This Tool is currently being built...<br/>Mobile cropper might behave weird. <br/>Known Issues: <br/>- (mobile) Moving cropper to the right changes tabs <br/>- (mobile)Pinch to zoom affects page instead of crop area <br>- Initial crop area doesn't cover the maximum size psossible" />
+    <Intro header="Card Designer" body="This Tool is currently being built...<br/>Mobile cropper might behave weird. <br/>Known Issues: <br/>- (mobile) Moving cropper to the right changes tabs <br/>- (mobile) Pinch to zoom affects page instead of crop area <br>- Initial crop area doesn't cover the maximum size possible" />
     <v-row justify="center" class="pa-10">
       <div class="button-wrapper">
         <input
@@ -10,13 +10,15 @@
           accept="image/*"
           @change="setImage"
         />
-        <v-btn class="button ma-10" @click="showFileChooser()">
+        <v-btn x-large class="button ma-10" @click="showFileChooser()">
           Open Image
+          <v-icon right dark>
+            mdi-cloud-upload
+          </v-icon>
         </v-btn>
       </div>
     </v-row>
     <v-row justify="center">
-     
       <section class="cropper-area">
         <div class="img-cropper">
           <vue-cropper
@@ -35,10 +37,15 @@
           <img id="frame" src="../assets/cards/overlay.png" alt="">
           <div class="custom-preview" />
         </div>
-        <v-btn class="button ma-10" @click="cropImage()">
-          Save Image
-        </v-btn>
       </section>
+    </v-row>
+    <v-row justify="center" class="pa-10">
+      <v-btn x-large class="button ma-10" @click="cropImage()">
+        Save Image
+        <v-icon right dark>
+          mdi-cloud-download
+        </v-icon>
+      </v-btn>
     </v-row>
   </div>
 </template>
@@ -123,6 +130,11 @@ export default {
 
 <style scoped lang="scss">
 //FIXME: Outsource styles
+
+.cropper-area {
+  padding-right: 25px;
+}
+
 .img-cropper {
   max-width: 50%;
 }
