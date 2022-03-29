@@ -78,6 +78,11 @@ export default {
 <style lang="scss">
 @import './styles/generic.scss';
 
+@font-face {
+  font-family: "Calibri Bold";
+  src: local("Calibri Bold"),url("./assets/fonts/calibrib.ttf") format("truetype");
+}
+
 a, footer.footer a {
   margin: 0 5px;
   color: #52BD6F;

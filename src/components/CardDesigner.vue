@@ -19,7 +19,7 @@
       </div>
     </v-row>
     <v-row justify="center">
-      <section class="cropper-area">
+      <div class="cropper-area">
         <div class="img-cropper">
           <vue-cropper
             ref="cropper"
@@ -30,22 +30,44 @@
             :aspectRatio="3/5"
           />
         </div>
-      </section>
+      </div>
 
-      <section class="preview-area">
+      <div class="preview-area">
+        <h3>Card-Preview</h3>
+        <h4>Options</h4>
+        <v-rating
+          v-model="stars"
+          color="yellow"
+          empty-icon="mdi-star-outline"
+          full-icon="mdi-star"
+          @input="updateFrame()"
+          hover
+          length="5"
+          size="25"
+          value="5"
+        ></v-rating>
+        <v-text-field
+          v-model="characterName"
+          label="Character Name"
+        ></v-text-field>
         <div class="card-container">
-          <img id="frame" src="../assets/cards/overlay.png" alt="">
+          <img class="card-overlay" id="name-panel" src="../assets/cards/name-panel.png" alt="">
+          <img class="card-overlay" id="frame" src="../assets/cards/1-star.png" alt="">
+          <div class="character-name-container">
+            <span class="character-name" >{{ characterName }}</span>
+          </div>
           <div class="custom-preview" />
         </div>
-      </section>
+        <v-btn x-large class="button ma-10" @click="cropImage()">
+          Save Image
+          <v-icon right dark>
+            mdi-cloud-download
+          </v-icon>
+        </v-btn>
+      </div>
     </v-row>
     <v-row justify="center" class="pa-10">
-      <v-btn x-large class="button ma-10" @click="cropImage()">
-        Save Image
-        <v-icon right dark>
-          mdi-cloud-download
-        </v-icon>
-      </v-btn>
+      
     </v-row>
   </div>
 </template>
@@ -66,9 +88,15 @@ export default {
   data: () => ({
     imgSrc: require("../assets/cards/akashi_placeholder.jpg"),
     cropImg: '',
-    data: null
+    data: null,
+    stars: 1,
+    characterName: ""
   }),
   methods: {
+    updateFrame() {
+      console.log('Update frame')
+      document.getElementById("frame").src =  require("../assets/cards/" + this.stars + "-star.png");
+    },
     cropImage() {
       // get image data for post processing, e.g. upload or setting image src
       this.cropImg = this.$refs.cropper.getCroppedCanvas().toDataURL();
@@ -117,14 +145,15 @@ export default {
     },
     showFileChooser() {
       this.$refs.input.click();
-    }
+    },
   },
   destroyed() {
     // Revoke the object URL, to allow the garbage collector to destroy the uploaded before file
     if (this.image.src) {
       URL.revokeObjectURL(this.image.src)
     }
-  }
+  },
+  
 }
 </script>
 
@@ -136,7 +165,8 @@ export default {
 }
 
 .img-cropper {
-  max-width: 50%;
+  max-width: 70%;
+  padding-top: 40px;
 }
 
 input[type="file"] {
@@ -156,13 +186,32 @@ input[type="file"] {
 .card-container {
   height: 500px;
   width: 300px;
+  position: relative;
 }
 
-#frame {
+.card-overlay {
   position: absolute;
   z-index: 1;
   max-height: 100%;
 }
+
+.character-name-container {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  height: 115px;
+  width: 100%;
+}
+
+.character-name {
+  z-index: 1;
+  text-align: center;
+  line-height: 29px;
+  font-family: 'Calibri Bold';
+  margin: auto;
+  font-size: 34px;
+}
+
 #card {
   height: 100%;
   width: 100%;
